@@ -32,11 +32,7 @@ function NameWord({
   );
 }
 
-interface Props {
-  parallax: { x: number; y: number };
-}
-
-export default function Hero({ parallax }: Props) {
+export default function Hero() {
   return (
     <section
       id="top"
@@ -197,7 +193,7 @@ export default function Hero({ parallax }: Props) {
           </div>
 
           {/* RIGHT */}
-          <HeroPortrait parallax={parallax} />
+          <HeroPortrait />
         </div>
 
         {/* scroll cue */}
@@ -322,7 +318,7 @@ function FloatingTag({
   );
 }
 
-function HeroPortrait({ parallax }: Props) {
+function HeroPortrait() {
   return (
     <div
       className="reveal delay-2"
@@ -343,9 +339,9 @@ function HeroPortrait({ parallax }: Props) {
           background:
             "linear-gradient(135deg, oklch(0.85 0.12 35 / 0.5), oklch(0.85 0.1 295 / 0.5))",
           animation: "blob-morph 12s ease-in-out infinite",
-          transform: `translate(${parallax.x * 8}px, ${parallax.y * 8}px)`,
-          transition: "transform 0.6s ease-out",
+          transform: "translate(calc(var(--px, 0) * 8px), calc(var(--py, 0) * 8px))",
           filter: "blur(8px)",
+          willChange: "transform",
         }}
       />
 
@@ -359,8 +355,8 @@ function HeroPortrait({ parallax }: Props) {
           borderRadius: "44% 56% 48% 52% / 52% 44% 56% 48%",
           overflow: "hidden",
           animation: "blob-morph 12s ease-in-out infinite",
-          transform: `translate(${parallax.x * -10}px, ${parallax.y * -6}px)`,
-          transition: "transform 0.6s ease-out",
+          transform: "translate(calc(var(--px, 0) * -10px), calc(var(--py, 0) * -6px))",
+          willChange: "transform",
         }}
       >
         <Image

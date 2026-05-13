@@ -19,9 +19,9 @@
   --glass-border: rgba(255, 255, 255, 0.7);
   --shadow-soft: 0 14px 40px -18px oklch(0.4 0.08 40 / 0.25);
   --shadow-lift: 0 30px 60px -28px oklch(0.4 0.08 40 / 0.35);
-  --font-display: "Caprasimo", "Playfair Display", Georgia, serif;
-  --font-body: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
-  --font-hand: "Caveat", "Comic Sans MS", cursive;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-hand: "Comic Sans MS", cursive;
 }
 
 * { box-sizing: border-box; }

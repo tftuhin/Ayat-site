@@ -12,16 +12,16 @@ import SparkleClick from "./SparkleClick";
 
 export default function PageShell() {
   useReveal();
-  const parallax = useParallax();
+  useParallax();
 
   return (
     <>
       <SparkleClick />
       <div className="bg-canvas" />
       <div className="bg-grain" />
-      <BackgroundLayer parallax={parallax} />
+      <BackgroundLayer />
       <TopNav />
-      <Hero parallax={parallax} />
+      <Hero />
       <Gallery />
       <About />
       <Awards />

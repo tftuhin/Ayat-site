@@ -21,17 +21,31 @@ export function useReveal() {
 }
 
 export function useParallax() {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
   useEffect(() => {
+    const target = { x: 0, y: 0 };
+    const cur = { x: 0, y: 0 };
+    let rafId: number;
+
     const onMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2;
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
-      setPos({ x, y });
+      target.x = (e.clientX / window.innerWidth - 0.5) * 2;
+      target.y = (e.clientY / window.innerHeight - 0.5) * 2;
     };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+
+    const tick = () => {
+      cur.x += (target.x - cur.x) * 0.08;
+      cur.y += (target.y - cur.y) * 0.08;
+      document.documentElement.style.setProperty("--px", cur.x.toFixed(3));
+      document.documentElement.style.setProperty("--py", cur.y.toFixed(3));
+      rafId = requestAnimationFrame(tick);
+    };
+
+    window.addEventListener("mousemove", onMove, { passive: true });
+    rafId = requestAnimationFrame(tick);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
-  return pos;
 }
 
 export function useCountUp(
