@@ -16,25 +16,26 @@ interface GalleryItem {
   year: number;
   video?: boolean;
   tint: string;
+  image: string;
 }
 
 const GALLERY: GalleryItem[] = [
-  { id: 1, cat: "DANCE", title: "Preparation for school program 2026", year: 2026, video: true, tint: "var(--rose)" },
-  { id: 2, cat: "NATIONAL", title: "Pahela Boishakh at Muktijuddho Jadughor", year: 2026, tint: "var(--peach)" },
-  { id: 3, cat: "RECITATION", title: "Poem Recitation in Pohela Boishakh", year: 2026, video: true, tint: "var(--lavender)" },
-  { id: 4, cat: "NATIONAL", title: "Pohela Boishakh event at School", year: 2026, tint: "var(--gold)" },
-  { id: 5, cat: "RECITATION", title: "Receiving award · Robindro Utsob", year: 2025, tint: "var(--peach)" },
-  { id: 6, cat: "RECITATION", title: "Robindro Utsob 2025", year: 2025, tint: "var(--lavender)" },
-  { id: 7, cat: "STORY", title: "Ayat's Birthday Party 2025", year: 2025, tint: "var(--rose)" },
-  { id: 8, cat: "STORY", title: "With her teacher · Birthday at School", year: 2025, tint: "var(--sage)" },
-  { id: 9, cat: "RECITATION", title: "Poem Recitation · 21 Feb 2025", year: 2025, video: true, tint: "var(--lavender)" },
-  { id: 10, cat: "STORY", title: "Receiving All-rounder award", year: 2024, tint: "var(--gold)" },
-  { id: 11, cat: "DANCE", title: "Annual Dance Competition 2024", year: 2024, video: true, tint: "var(--rose)" },
-  { id: 12, cat: "NATIONAL", title: "21 February 2024", year: 2024, tint: "var(--peach)" },
-  { id: 13, cat: "RECITATION", title: "Music Competition 2023", year: 2023, tint: "var(--lavender)" },
-  { id: 14, cat: "RECITATION", title: "Poem Recitation · Robindro Utsob", year: 2023, video: true, tint: "var(--peach)" },
-  { id: 15, cat: "NATIONAL", title: "Bosonto Utsob 2023", year: 2023, tint: "var(--gold)" },
-  { id: 16, cat: "NATIONAL", title: "Falgun Utsob award", year: 2023, tint: "var(--sage)" },
+  { id: 1, cat: "DANCE", title: "Preparation for school program 2026", year: 2026, video: true, tint: "var(--rose)", image: "/images/preparation-school-2026.png" },
+  { id: 2, cat: "NATIONAL", title: "Pahela Boishakh at Muktijuddho Jadughor", year: 2026, tint: "var(--peach)", image: "/images/pahela-boishakh-2026-jadughor.png" },
+  { id: 3, cat: "RECITATION", title: "Poem Recitation in Pohela Boishakh", year: 2026, video: true, tint: "var(--lavender)", image: "/images/poem-recitation-pohela-boishakh-2026.png" },
+  { id: 4, cat: "NATIONAL", title: "Pohela Boishakh event at School", year: 2026, tint: "var(--gold)", image: "/images/pohela-boishakh-2026-school.png" },
+  { id: 5, cat: "RECITATION", title: "Receiving award · Robindro Utsob", year: 2025, tint: "var(--peach)", image: "/images/award-robindro-utsob-2025.png" },
+  { id: 6, cat: "RECITATION", title: "Robindro Utsob 2025", year: 2025, tint: "var(--lavender)", image: "/images/robindro-utsob-2025.png" },
+  { id: 7, cat: "STORY", title: "Ayat's Birthday Party 2025", year: 2025, tint: "var(--rose)", image: "/images/birthday-party-2025.png" },
+  { id: 8, cat: "STORY", title: "With her teacher · Birthday at School", year: 2025, tint: "var(--sage)", image: "/images/teacher-birthday-school-2025.png" },
+  { id: 9, cat: "RECITATION", title: "Poem Recitation · 21 Feb 2025", year: 2025, video: true, tint: "var(--lavender)", image: "/images/poem-recitation-21-feb-2025.png" },
+  { id: 10, cat: "STORY", title: "Receiving All-rounder award", year: 2024, tint: "var(--gold)", image: "/images/all-rounder-award-2024.png" },
+  { id: 11, cat: "DANCE", title: "Annual Dance Competition 2024", year: 2024, video: true, tint: "var(--rose)", image: "/images/annual-dance-competition-2024.png" },
+  { id: 12, cat: "NATIONAL", title: "21 February 2024", year: 2024, tint: "var(--peach)", image: "/images/21-february-2024.png" },
+  { id: 13, cat: "RECITATION", title: "Music Competition 2023", year: 2023, tint: "var(--lavender)", image: "/images/music-competition-2023.png" },
+  { id: 14, cat: "RECITATION", title: "Poem Recitation · Robindro Utsob", year: 2023, video: true, tint: "var(--peach)", image: "/images/poem-recitation-robindro-2023.png" },
+  { id: 15, cat: "NATIONAL", title: "Bosonto Utsob 2023", year: 2023, tint: "var(--gold)", image: "/images/bosonto-utsob-2023.png" },
+  { id: 16, cat: "NATIONAL", title: "Falgun Utsob award", year: 2023, tint: "var(--sage)", image: "/images/award-falgun-utsob-2023.png" },
 ];
 
 const CATS = [
@@ -477,13 +478,16 @@ function CoverflowCard({
             : "0 20px 40px -20px oklch(0.4 0.08 40 / 0.35)",
         }}
       >
-        <div
-          className="placeholder-img"
-          data-label={item.title.toUpperCase()}
+        <img
+          src={item.image}
+          alt={item.title}
           style={{
             position: "absolute",
             inset: 0,
-            background: `linear-gradient(135deg, ${item.tint}, oklch(0.92 0.04 60))`,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center top",
           }}
         />
         <div
@@ -744,10 +748,15 @@ function Lightbox({
             aspectRatio: "16/10",
           }}
         >
-          <div
-            className="placeholder-img"
-            data-label={`${item.title.toUpperCase()}\n${item.video ? "VIDEO PLACEHOLDER" : "IMAGE PLACEHOLDER"}`}
+          <img
+            src={item.image}
+            alt={item.title}
             style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
               background: `linear-gradient(135deg, ${item.tint}, oklch(0.92 0.04 60))`,
             }}
           />

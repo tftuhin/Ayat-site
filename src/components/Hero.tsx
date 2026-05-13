@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, useState } from "react";
 import AnimatedStat from "./AnimatedStat";
 
 interface Props {
@@ -339,12 +338,16 @@ function HeroPortrait({ parallax }: Props) {
           transition: "transform 0.6s ease-out",
         }}
       >
-        <div
-          className="placeholder-img"
-          data-label={"HERO PORTRAIT\nayat in traditional dance costume\n(replace with hero photo)"}
+        <img
+          src="/images/hero.png"
+          alt="Tahrin Ayat"
           style={{
-            background:
-              "linear-gradient(135deg, oklch(0.88 0.1 35) 0%, oklch(0.88 0.08 295) 50%, oklch(0.9 0.08 160) 100%)",
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center top",
           }}
         />
       </div>
