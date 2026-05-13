@@ -278,9 +278,10 @@ body {
   .hero-grid { grid-template-columns: 1fr !important; }
 }
 
-@keyframes sparkle-fly {
-  0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.2); }
+@keyframes popper-fly {
+  0%   { opacity: 1;   transform: translate(-50%, -50%) rotate(var(--rot))   scale(1); }
+  70%  { opacity: 1; }
+  100% { opacity: 0;   transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot-end)) scale(0.5); }
 }
 
 @media (max-width: 720px) {
