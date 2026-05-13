@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import AnimatedStat from "./AnimatedStat";
 
 interface Award {
@@ -16,13 +17,13 @@ interface Award {
 }
 
 const AWARDS: Award[] = [
-  { id: 1, icon: "⭐", title: "Best Performer", org: "Milestone School & College", year: "2025", body: "Recognized as the Best Performer for outstanding discipline and speaking skills in the K.G. class.", tint: "var(--peach)", rank: "Top honor", image: "/images/award-best-performer.png" },
-  { id: 2, icon: "💃", title: "Annual Dance Competition", org: "Milestone School & College", year: "2024", body: "Awarded 1st place for performance in the Annual Dance Competition for the Nursery class.", tint: "var(--rose)", rank: "1st Place", image: "/images/award-annual-dance-2024.png" },
-  { id: 3, icon: "🌟", title: "Best All Rounder", org: "Milestone School & College", year: "2024", body: "Recognized as the Best All Rounder in the Nursery class for excellence across academics and arts.", tint: "var(--gold)", rank: "All-rounder", image: "/images/award-best-all-rounder.png" },
-  { id: 4, icon: "🎤", title: "Poem Recitation", org: "Milestone School & College", year: "2024", body: "Awarded 1st place for poem recitation in the Nursery class.", tint: "var(--lavender)", rank: "1st Place", image: "/images/award-poem-recitation.png" },
-  { id: 5, icon: "🎭", title: "Annual Cultural Programme", org: "Milestone School & College", year: "2023", body: "Recognized for rhyme performance in the Annual Cultural Programme for the Play Group.", tint: "var(--sage)", rank: "Featured", image: "/images/award-annual-cultural-programme.png" },
-  { id: 6, icon: "🏆", title: "Best Discipline", org: "Milestone School & College", year: "2023", body: "Awarded for Best Discipline in the PG class.", tint: "var(--sky)", rank: "Honor", image: "/images/award-best-discipline.png" },
-  { id: 7, icon: "💃", title: "Dance Competition", org: "Milestone School & College", year: "2023", body: "Awarded 1st Prize for performance in the Dance Competition for the Play class.", tint: "var(--rose)", rank: "1st Prize", image: "/images/award-dance-competition-2023.png" },
+  { id: 1, icon: "⭐", title: "Best Performer", org: "Milestone School & College", year: "2025", body: "Recognized as the Best Performer for outstanding discipline and speaking skills in the K.G. class.", tint: "var(--peach)", rank: "Top honor", image: "/images/award-best-performer.webp" },
+  { id: 2, icon: "💃", title: "Annual Dance Competition", org: "Milestone School & College", year: "2024", body: "Awarded 1st place for performance in the Annual Dance Competition for the Nursery class.", tint: "var(--rose)", rank: "1st Place", image: "/images/award-annual-dance-2024.webp" },
+  { id: 3, icon: "🌟", title: "Best All Rounder", org: "Milestone School & College", year: "2024", body: "Recognized as the Best All Rounder in the Nursery class for excellence across academics and arts.", tint: "var(--gold)", rank: "All-rounder", image: "/images/award-best-all-rounder.webp" },
+  { id: 4, icon: "🎤", title: "Poem Recitation", org: "Milestone School & College", year: "2024", body: "Awarded 1st place for poem recitation in the Nursery class.", tint: "var(--lavender)", rank: "1st Place", image: "/images/award-poem-recitation.webp" },
+  { id: 5, icon: "🎭", title: "Annual Cultural Programme", org: "Milestone School & College", year: "2023", body: "Recognized for rhyme performance in the Annual Cultural Programme for the Play Group.", tint: "var(--sage)", rank: "Featured", image: "/images/award-annual-cultural-programme.webp" },
+  { id: 6, icon: "🏆", title: "Best Discipline", org: "Milestone School & College", year: "2023", body: "Awarded for Best Discipline in the PG class.", tint: "var(--sky)", rank: "Honor", image: "/images/award-best-discipline.webp" },
+  { id: 7, icon: "💃", title: "Dance Competition", org: "Milestone School & College", year: "2023", body: "Awarded 1st Prize for performance in the Dance Competition for the Play class.", tint: "var(--rose)", rank: "1st Prize", image: "/images/award-dance-competition-2023.webp" },
 ];
 
 export default function Awards() {
@@ -160,16 +161,12 @@ function AwardCard({
               marginBottom: 16,
             }}
           >
-            <img
+            <Image
               src={award.image}
               alt={award.title}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center",
-                display: "block",
-              }}
+              fill
+              sizes="(max-width: 720px) 100vw, 320px"
+              style={{ objectFit: "cover", objectPosition: "center" }}
             />
 
             {/* rank badge */}

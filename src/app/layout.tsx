@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   description:
     "A bright, expressive young performer bringing Bengali poetry, traditional fables, and joyful dance to every stage.",
   icons: {
-    icon: "/images/hero.png",
-    apple: "/images/hero.png",
+    icon: "/images/hero.webp",
+    apple: "/images/hero.webp",
   },
 };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import AnimatedStat from "./AnimatedStat";
 
 function NameWord({
@@ -362,17 +363,13 @@ function HeroPortrait({ parallax }: Props) {
           transition: "transform 0.6s ease-out",
         }}
       >
-        <img
-          src="/images/hero.png"
-          alt="Tahrin Ayat"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center top",
-          }}
+        <Image
+          src="/images/hero.webp"
+          alt="Tahrin Jahan Ayat"
+          fill
+          priority
+          sizes="(max-width: 720px) 100vw, 560px"
+          style={{ objectFit: "cover", objectPosition: "center top" }}
         />
       </div>
 
