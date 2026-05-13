@@ -8,6 +8,7 @@ import Gallery from "./Gallery";
 import About from "./About";
 import Awards from "./Awards";
 import Contact from "./Contact";
+import SparkleClick from "./SparkleClick";
 
 export default function PageShell() {
   useReveal();
@@ -15,6 +16,7 @@ export default function PageShell() {
 
   return (
     <>
+      <SparkleClick />
       <div className="bg-canvas" />
       <div className="bg-grain" />
       <BackgroundLayer parallax={parallax} />

@@ -278,6 +278,11 @@ body {
   .hero-grid { grid-template-columns: 1fr !important; }
 }
 
+@keyframes sparkle-fly {
+  0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.2); }
+}
+
 @media (max-width: 720px) {
   .section { padding: 48px 0; }
   .shell { padding: 0 18px; }
