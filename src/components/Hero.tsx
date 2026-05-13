@@ -1,6 +1,35 @@
 "use client";
 
+import { useState } from "react";
 import AnimatedStat from "./AnimatedStat";
+
+function NameWord({
+  children,
+  color,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  color: string;
+  delay?: number;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <span
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        color,
+        display: "inline-block",
+        transition: `transform 0.35s cubic-bezier(.2,.9,.3,1.4) ${delay}ms, filter 0.3s ease`,
+        transform: hovered ? "translateY(-6px) scale(1.06)" : "translateY(0) scale(1)",
+        filter: hovered ? "drop-shadow(0 8px 18px oklch(0.62 0.16 30 / 0.35))" : "none",
+        cursor: "default",
+      }}
+    >
+      {children}
+    </span>
+  );
+}
 
 interface Props {
   parallax: { x: number; y: number };
@@ -69,17 +98,12 @@ export default function Hero({ parallax }: Props) {
             >
               Hi, I&apos;m
               <br />
-              <span
-                style={{
-                  color: "var(--peach-deep)",
-                  position: "relative",
-                  display: "inline-block",
-                }}
-              >
-                Tahrin
+              <span style={{ position: "relative", display: "inline-block" }}>
+                <NameWord color="var(--peach-deep)">Tahrin</NameWord>
                 <Squiggle />
               </span>{" "}
-              <span style={{ color: "var(--ink)" }}>Ayat</span>
+              <NameWord color="var(--lavender-deep)" delay={40}>Jahan</NameWord>{" "}
+              <NameWord color="var(--ink)" delay={80}>Ayat</NameWord>
               <br />
               <span
                 className="hand"
