@@ -754,8 +754,9 @@ function Lightbox({
             <video
               src={item.videoSrc}
               controls
-              autoPlay
               playsInline
+              preload="none"
+              poster={item.image}
               style={{
                 position: "absolute",
                 inset: 0,
