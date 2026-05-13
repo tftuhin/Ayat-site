@@ -148,7 +148,7 @@ export default function Hero({ parallax }: Props) {
                 marginTop: 36,
               }}
             >
-              <a href="#gallery" className="btn btn-primary">
+              <a href="#stage" className="btn btn-primary">
                 See my performances <span>→</span>
               </a>
               <a href="#awards" className="btn btn-ghost">

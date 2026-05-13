@@ -100,7 +100,7 @@ export default function Gallery() {
 
   return (
     <section
-      id="gallery"
+      id="stage"
       className="section"
       style={{ position: "relative", paddingTop: 60, paddingBottom: 80 }}
     >
