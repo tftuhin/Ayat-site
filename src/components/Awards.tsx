@@ -12,16 +12,17 @@ interface Award {
   body: string;
   tint: string;
   rank: string;
+  image: string;
 }
 
 const AWARDS: Award[] = [
-  { id: 1, icon: "⭐", title: "Best Performer", org: "Milestone School & College", year: "2025", body: "Recognized as the Best Performer for outstanding discipline and speaking skills in the K.G. class.", tint: "var(--peach)", rank: "Top honor" },
-  { id: 2, icon: "💃", title: "Annual Dance Competition", org: "Milestone School & College", year: "2024", body: "Awarded 1st place for performance in the Annual Dance Competition for the Nursery class.", tint: "var(--rose)", rank: "1st Place" },
-  { id: 3, icon: "🌟", title: "Best All Rounder", org: "Milestone School & College", year: "2024", body: "Recognized as the Best All Rounder in the Nursery class for excellence across academics and arts.", tint: "var(--gold)", rank: "All-rounder" },
-  { id: 4, icon: "🎤", title: "Poem Recitation", org: "Milestone School & College", year: "2024", body: "Awarded 1st place for poem recitation in the Nursery class.", tint: "var(--lavender)", rank: "1st Place" },
-  { id: 5, icon: "🎭", title: "Annual Cultural Programme", org: "Milestone School & College", year: "2023", body: "Recognized for rhyme performance in the Annual Cultural Programme for the Play Group.", tint: "var(--sage)", rank: "Featured" },
-  { id: 6, icon: "🏆", title: "Best Discipline", org: "Milestone School & College", year: "2023", body: "Awarded for Best Discipline in the PG class.", tint: "var(--sky)", rank: "Honor" },
-  { id: 7, icon: "💃", title: "Dance Competition", org: "Milestone School & College", year: "2023", body: "Awarded 1st Prize for performance in the Dance Competition for the Play class.", tint: "var(--rose)", rank: "1st Prize" },
+  { id: 1, icon: "⭐", title: "Best Performer", org: "Milestone School & College", year: "2025", body: "Recognized as the Best Performer for outstanding discipline and speaking skills in the K.G. class.", tint: "var(--peach)", rank: "Top honor", image: "/images/award-best-performer.png" },
+  { id: 2, icon: "💃", title: "Annual Dance Competition", org: "Milestone School & College", year: "2024", body: "Awarded 1st place for performance in the Annual Dance Competition for the Nursery class.", tint: "var(--rose)", rank: "1st Place", image: "/images/award-annual-dance-2024.png" },
+  { id: 3, icon: "🌟", title: "Best All Rounder", org: "Milestone School & College", year: "2024", body: "Recognized as the Best All Rounder in the Nursery class for excellence across academics and arts.", tint: "var(--gold)", rank: "All-rounder", image: "/images/award-best-all-rounder.png" },
+  { id: 4, icon: "🎤", title: "Poem Recitation", org: "Milestone School & College", year: "2024", body: "Awarded 1st place for poem recitation in the Nursery class.", tint: "var(--lavender)", rank: "1st Place", image: "/images/award-poem-recitation.png" },
+  { id: 5, icon: "🎭", title: "Annual Cultural Programme", org: "Milestone School & College", year: "2023", body: "Recognized for rhyme performance in the Annual Cultural Programme for the Play Group.", tint: "var(--sage)", rank: "Featured", image: "/images/award-annual-cultural-programme.png" },
+  { id: 6, icon: "🏆", title: "Best Discipline", org: "Milestone School & College", year: "2023", body: "Awarded for Best Discipline in the PG class.", tint: "var(--sky)", rank: "Honor", image: "/images/award-best-discipline.png" },
+  { id: 7, icon: "💃", title: "Dance Competition", org: "Milestone School & College", year: "2023", body: "Awarded 1st Prize for performance in the Dance Competition for the Play class.", tint: "var(--rose)", rank: "1st Prize", image: "/images/award-dance-competition-2023.png" },
 ];
 
 export default function Awards() {
@@ -155,73 +156,39 @@ function AwardCard({
               borderRadius: 16,
               overflow: "hidden",
               position: "relative",
-              background: `linear-gradient(135deg, ${award.tint}, oklch(0.95 0.04 60))`,
               border: "1px solid var(--glass-border)",
               marginBottom: 16,
-              display: "grid",
-              placeItems: "center",
             }}
           >
-            {[
-              { top: 8, left: 8 },
-              { top: 8, right: 8, transform: "rotate(90deg)" } as React.CSSProperties,
-              { bottom: 8, right: 8, transform: "rotate(180deg)" } as React.CSSProperties,
-              { bottom: 8, left: 8, transform: "rotate(270deg)" } as React.CSSProperties,
-            ].map((p, i) => (
-              <svg
-                key={i}
-                viewBox="0 0 30 30"
-                width="22"
-                height="22"
-                style={{ position: "absolute", ...p, opacity: 0.5 }}
-              >
-                <path
-                  d="M2 2 L 2 14 M2 2 L 14 2 M2 8 L 8 8 L 8 2"
-                  fill="none"
-                  stroke="var(--ink-soft)"
-                  strokeWidth="1.2"
-                />
-              </svg>
-            ))}
+            <img
+              src={award.image}
+              alt={award.title}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center",
+                display: "block",
+              }}
+            />
 
-            <div style={{ textAlign: "center", padding: 16 }}>
-              <div
-                style={{
-                  fontSize: 52,
-                  marginBottom: 8,
-                  filter: "drop-shadow(0 6px 12px rgba(0,0,0,0.15))",
-                }}
-              >
-                {award.icon}
-              </div>
-              <div
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: 10,
-                  letterSpacing: "0.3em",
-                  color: "var(--ink-soft)",
-                  textTransform: "uppercase",
-                  marginBottom: 8,
-                }}
-              >
-                Certificate of
-              </div>
-              <div
-                className="display"
-                style={{ fontSize: 22, color: "var(--ink)", lineHeight: 1.1 }}
-              >
-                {award.title}
-              </div>
-              <div
-                style={{
-                  marginTop: 12,
-                  fontSize: 11,
-                  color: "var(--ink-mute)",
-                  fontStyle: "italic",
-                }}
-              >
-                · {award.year} ·
-              </div>
+            {/* rank badge */}
+            <div
+              style={{
+                position: "absolute",
+                top: 10,
+                right: 10,
+                padding: "5px 11px",
+                borderRadius: 999,
+                fontSize: 10,
+                fontWeight: 800,
+                letterSpacing: "0.14em",
+                background: "rgba(255,255,255,0.92)",
+                backdropFilter: "blur(10px)",
+                color: "var(--ink)",
+              }}
+            >
+              {award.rank}
             </div>
 
             {/* shimmer */}
@@ -230,7 +197,7 @@ function AwardCard({
                 position: "absolute",
                 inset: 0,
                 background:
-                  "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.5) 50%, transparent 70%)",
+                  "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.4) 50%, transparent 70%)",
                 transform: "translateX(-100%)",
                 animation: "shimmer 4s ease-in-out infinite",
                 pointerEvents: "none",
