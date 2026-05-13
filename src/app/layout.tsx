@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: "Tahrin Jahan Ayat — Child Artist Portfolio",
   description:
     "A bright, expressive young performer bringing Bengali poetry, traditional fables, and joyful dance to every stage.",
+  icons: {
+    icon: "/images/hero.png",
+    apple: "/images/hero.png",
+  },
 };
 
 export default function RootLayout({
